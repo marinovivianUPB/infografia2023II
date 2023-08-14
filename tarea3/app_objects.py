@@ -162,7 +162,7 @@ class Tank:
         for bullet in tank.bullets:
             if self.distance_to(bullet) < self.r:
                 self.is_alive = False
-                tank.score += self.score
+                tank.score += 100
         return self.is_alive
     
     def distance_to(self, bullet):
