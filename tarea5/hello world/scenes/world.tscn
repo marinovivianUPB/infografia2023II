@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://cp60hmgcvdum1"]
+
+[ext_resource type="PackedScene" uid="uid://dx0vx42lx5qdq" path="res://scenes/MovingPlayer.tscn" id="1_xw1fo"]
+[ext_resource type="PackedScene" uid="uid://fmwex4u21rrl" path="res://scenes/listener.tscn" id="2_y5khx"]
+[ext_resource type="Texture2D" uid="uid://7apfastwfabg" path="res://rotate_right.png" id="3_63wk6"]
+[ext_resource type="Texture2D" uid="uid://bq0c1xb5rw425" path="res://rotate_left.png" id="4_650nf"]
+[ext_resource type="Texture2D" uid="uid://cpphp2fsnaqoy" path="res://up.jpeg" id="5_2v3hh"]
+[ext_resource type="Texture2D" uid="uid://bh7a8hgl1o18n" path="res://down.png" id="6_rbe6b"]
+[ext_resource type="Texture2D" uid="uid://bqd773aolpcff" path="res://right.jpg" id="7_nba32"]
+[ext_resource type="Texture2D" uid="uid://qu8gaf8vd2tj" path="res://left.jpg" id="8_nxrgc"]
+
+[node name="World" type="Node2D"]
+
+[node name="MovingPlayer" parent="." instance=ExtResource("1_xw1fo")]
+position = Vector2(454, 308)
+
+[node name="Listener" parent="." instance=ExtResource("2_y5khx")]
+
+[node name="RotateRight" type="Button" parent="."]
+offset_left = 668.0
+offset_top = 83.0
+offset_right = 1188.0
+offset_bottom = 603.0
+scale = Vector2(0.12, 0.12)
+icon = ExtResource("3_63wk6")
+metadata/_edit_group_ = true
+
+[node name="RotateLeft" type="Button" parent="."]
+offset_left = 591.0
+offset_top = 81.0
+offset_right = 1111.0
+offset_bottom = 601.0
+scale = Vector2(0.12, 0.123039)
+icon = ExtResource("4_650nf")
+
+[node name="Up" type="Button" parent="."]
+offset_left = 182.0
+offset_top = 64.0
+offset_right = 530.0
+offset_bottom = 412.0
+scale = Vector2(0.16, 0.16)
+icon = ExtResource("5_2v3hh")
+
+[node name="Down" type="Button" parent="."]
+offset_left = 183.0
+offset_top = 129.0
+offset_right = 416.0
+offset_bottom = 362.0
+scale = Vector2(0.24, 0.24)
+icon = ExtResource("6_rbe6b")
+
+[node name="Right" type="Button" parent="."]
+offset_left = 244.0
+offset_top = 93.0
+offset_right = 452.0
+offset_bottom = 301.0
+scale = Vector2(0.3, 0.3)
+icon = ExtResource("7_nba32")
+
+[node name="Left" type="Button" parent="."]
+offset_left = 116.0
+offset_top = 91.0
+offset_right = 736.0
+offset_bottom = 711.0
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("8_nxrgc")
+
+[connection signal="touch" from="MovingPlayer" to="Listener" method="_on_moving_player_touch"]
+[connection signal="pressed" from="RotateRight" to="MovingPlayer" method="_on_button_pressed"]
+[connection signal="pressed" from="RotateLeft" to="MovingPlayer" method="_on_rotate_left_pressed"]
+[connection signal="pressed" from="RotateLeft" to="Listener" method="_on_rotate_left_pressed"]
+[connection signal="pressed" from="Up" to="MovingPlayer" method="_on_up_pressed"]
+[connection signal="pressed" from="Down" to="MovingPlayer" method="_on_down_pressed"]
+[connection signal="pressed" from="Right" to="MovingPlayer" method="_on_right_pressed"]
+[connection signal="pressed" from="Left" to="MovingPlayer" method="_on_left_pressed"]

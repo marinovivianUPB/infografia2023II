@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://fmwex4u21rrl"]
+
+[ext_resource type="Script" path="res://scripts/Listener.gd" id="1_ecb3k"]
+
+[node name="Listener" type="Node2D"]
+script = ExtResource("1_ecb3k")
